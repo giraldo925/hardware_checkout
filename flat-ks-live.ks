@@ -436,16 +436,20 @@ wget https://raw.githubusercontent.com/sealingtech/hardware_checkout/master/wipe
 chmod +x wipe.sh
 cp wipe.sh /usr/bin
 
+wget https://raw.githubusercontent.com/sealingtech/hardware_checkout/master/initialboot.sh
+chmod +x initialboot.sh
+cp initialboot.sh /usr/bin
+
 wget http://www.mersenne.org/ftp_root/gimps/p95v298b3.linux64.tar.gz
 tar xvzf p95v298b3.linux64.tar.gz
 cp mprime /usr/bin
 
-cat >> /etc/xdg/autostart/hardware_checkout.desktop << EOF
+cat >> /etc/xdg/autostart/initialboot.desktop << EOF
 [Desktop Entry]
 Name=Hardware Checkout
 GenericName=Verifies hardware
 Comment=Will verify the hardware to ensure it meets the proper requirements
-Exec=sudo /usr/bin/hardware_checkout.sh
+Exec=sudo /usr/bin/initialboot.sh
 Terminal=true
 Type=Application
 X-GNOME-Autostart-enabled=true
